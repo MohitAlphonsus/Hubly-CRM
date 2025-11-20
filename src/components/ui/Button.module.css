@@ -3,19 +3,29 @@
 .btn:visited {
 	display: inline-block;
 	font-size: 1.6rem;
-	font-weight: 500;
+	font-weight: 600;
 	text-decoration: none;
 	border: none;
 	border-radius: 8px;
-	padding: 8px 16px;
+
 	cursor: pointer;
 }
 
-.link--primary {
-	color: #36364a;
+.btn--small {
+	font-size: 1.6rem;
+	padding: 0.8rem 1.6rem;
+}
+
+.btn--medium {
+	font-size: 1.8rem;
+	padding: 1.4rem 4rem;
 }
 
 .btn--primary {
 	background-color: #244779;
 	color: #fff;
+}
+
+.link--primary {
+	color: #36364a;
 }

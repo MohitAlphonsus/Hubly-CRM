@@ -1,8 +1,19 @@
 import styles from "./Button.module.css";
-export default function Button({ children, onClick, icon, isLink = false }) {
+export default function Button({
+	children,
+	onClick,
+	icon,
+	size,
+	isLink = false,
+}) {
 	if (isLink) {
 		return (
-			<a href="#" className={`${styles.btn} ${styles["link--primary"]}`}>
+			<a
+				href="#"
+				className={`${styles.btn} ${styles["link--primary"]} ${
+					styles[`btn--${size}`]
+				}`}
+			>
 				{children}
 			</a>
 		);
@@ -10,7 +21,9 @@ export default function Button({ children, onClick, icon, isLink = false }) {
 	return (
 		<button
 			onClick={onClick}
-			className={`${styles.btn} ${styles["btn--primary"]}`}
+			className={`${styles.btn} ${styles["btn--primary"]} ${
+				styles[`btn--${size}`]
+			}`}
 		>
 			{children}
 			{icon && icon}

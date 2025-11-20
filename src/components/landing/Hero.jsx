@@ -13,13 +13,16 @@ export default function Hero() {
 							in one powerful platform.
 						</p>
 						<div className={styles.hero__actions}>
-							<Button>Get Started</Button>
+							<Button size="medium">Get Started</Button>
 						</div>
 					</div>
 					<div className={styles.hero__image}>
 						<div className={styles.hero__image__rect}>
 							<img src="/src/assets/hero.png" alt="hero" />
 						</div>
+						<div className={styles.hero__image__card}>&nbsp;</div>
+						<div className={styles.hero__image__calender}>&nbsp;</div>
+						<div className={styles.hero__image__graph}>&nbsp;</div>
 					</div>
 				</div>
 			</div>

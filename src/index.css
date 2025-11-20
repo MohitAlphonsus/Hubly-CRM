@@ -1,5 +1,6 @@
 :root {
 	--font: "Barlow", sans-serif;
+	--color-bg: #f8fbfe;
 }
 
 * {
@@ -10,11 +11,13 @@
 
 html {
 	font-size: 62.5%;
+	scrollbar-width: none;
 }
 
 body {
 	font-size: 1.6rem;
 	font-family: var(--font);
+	background-color: var(--color-bg);
 }
 
 .container {

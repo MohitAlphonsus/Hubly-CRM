@@ -8,8 +8,10 @@ export default function Header() {
 				<img src="/src/assets/logo.svg" alt="logo" />
 			</div>
 			<div className={styles.actions}>
-				<Button isLink={true}>Login</Button>
-				<Button>Sign Up</Button>
+				<Button size="small" isLink={true}>
+					Login
+				</Button>
+				<Button size="small">Sign Up</Button>
 			</div>
 		</header>
 	);
