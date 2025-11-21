@@ -4,7 +4,9 @@ export default function Button({
 	onClick,
 	icon,
 	size,
+	variant = "primary",
 	isLink = false,
+	iconLeft = false,
 }) {
 	if (isLink) {
 		return (
@@ -21,12 +23,13 @@ export default function Button({
 	return (
 		<button
 			onClick={onClick}
-			className={`${styles.btn} ${styles["btn--primary"]} ${
+			className={`${styles.btn} ${styles[`btn--${variant}`]} ${
 				styles[`btn--${size}`]
 			}`}
 		>
+			{iconLeft && icon && icon}
 			{children}
-			{icon && icon}
+			{!iconLeft && icon && icon}
 		</button>
 	);
 }

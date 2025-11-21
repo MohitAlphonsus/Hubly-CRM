@@ -1,0 +1,11 @@
+.brands {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: var(--color-bg-2);
+	padding: 4rem 0;
+}
+
+.brands img {
+	width: 14rem;
+}

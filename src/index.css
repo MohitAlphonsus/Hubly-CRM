@@ -1,6 +1,14 @@
 :root {
 	--font: "Barlow", sans-serif;
 	--color-bg: #f8fbfe;
+	--color-bg-2:#EBF1F9;
+	--color-white: #fff;
+	--color-dark:#1B1A1A;
+	--color-primary: #3a7abd;
+	--color-primary-light: #30404d;
+	--color-primary-dark: #244779;
+
+	--text-light:#36364a:
 }
 
 * {
@@ -18,9 +26,34 @@ body {
 	font-size: 1.6rem;
 	font-family: var(--font);
 	background-color: var(--color-bg);
+	color: var(--color-primary-light);
+}
+
+input,
+button {
+	font: inherit;
 }
 
 .container {
 	max-width: 120rem;
 	margin: 0 auto;
 }
+
+.section {
+	padding: 11.7rem 0;
+}
+
+.heading-primary {
+	font-size: 5.4rem;
+}
+
+.heading-secondary {
+	font-size: 4.4rem;
+	font-weight: 600;
+}
+
+.text-primary {
+	font-size: 1.8rem;
+}
+
+

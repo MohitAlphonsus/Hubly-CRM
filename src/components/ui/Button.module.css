@@ -7,7 +7,9 @@
 	text-decoration: none;
 	border: none;
 	border-radius: 8px;
-
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 	cursor: pointer;
 }
 
@@ -18,14 +20,19 @@
 
 .btn--medium {
 	font-size: 1.8rem;
-	padding: 1.4rem 4rem;
+	padding: 0.5rem 4rem;
 }
 
 .btn--primary {
-	background-color: #244779;
-	color: #fff;
+	background-color: var(--color-primary-dark);
+	color: var(--color-white);
+}
+
+.btn--secondary {
+	background: none;
+	color: var(--color-primary-light);
 }
 
 .link--primary {
-	color: #36364a;
+	color: var(--text-light);
 }

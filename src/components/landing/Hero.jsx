@@ -1,5 +1,7 @@
 import { Button } from "../ui";
 import styles from "./Hero.module.css";
+import arrowRight from "/src/assets/arrow-right.svg";
+import playBtn from "/src/assets/play-button.svg";
 
 export default function Hero() {
 	return (
@@ -7,13 +9,25 @@ export default function Hero() {
 			<div className="container">
 				<div className={styles.hero}>
 					<div className={styles.hero__content}>
-						<h1>Grow Your Business Faster with Hubly CRM</h1>
-						<p>
+						<h1 className="heading-primary">
+							Grow Your Business Faster with Hubly CRM
+						</h1>
+						<p className="text-primary">
 							Manage leads, automate workflows, and close deals effortlessly—all
 							in one powerful platform.
 						</p>
 						<div className={styles.hero__actions}>
-							<Button size="medium">Get Started</Button>
+							<Button size="medium" icon={<img src={arrowRight} alt="arrow" />}>
+								Get Started
+							</Button>
+							<Button
+								size="medium"
+								variant="secondary"
+								icon={<img src={playBtn} alt="play" />}
+								iconLeft
+							>
+								Watch Video
+							</Button>
 						</div>
 					</div>
 					<div className={styles.hero__image}>

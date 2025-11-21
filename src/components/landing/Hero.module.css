@@ -3,7 +3,6 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 6rem;
-	padding: 11.2rem 0;
 }
 
 .hero__content {
@@ -11,10 +10,10 @@
 	flex-direction: column;
 	gap: 2.6rem;
 	margin-top: -6rem;
-	h1 {
-		font-size: 5.4rem;
-		color: #30404d;
-	}
+}
+
+.hero__actions {
+	display: flex;
 }
 
 .hero__image {
