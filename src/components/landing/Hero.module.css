@@ -41,13 +41,13 @@
 	&::before {
 		right: 2rem;
 		top: 2rem;
-		background-color: #629dd4;
+		background-color: var(--color-primary-dark-2);
 	}
 
 	&::after {
 		bottom: 2rem;
 		left: 2rem;
-		background-color: #256cb5;
+		background-color: var(--color-primary-dark-2);
 	}
 
 	& img {

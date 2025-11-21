@@ -9,6 +9,24 @@ export const BRANDS = [
 	{ name: "Elastic", logo: elasticLogo },
 	{ name: "OpenDoor", logo: opendoorLogo },
 	{ name: "Airtable", logo: airtableLogo },
-	{ name: "Elastic", logo: elasticLogo },
+	{ name: "Elastic2", logo: elasticLogo },
 	{ name: "Framer", logo: framerLogo },
+];
+
+export const aboutTexts = [
+	{
+		id: 1,
+		title: "MULTIPLE PLATFORMS TOGETHER!",
+		desc: "Email communication is a breeze with our fully integrated, drag & drop email builder.",
+	},
+	{
+		id: 2,
+		title: "Close",
+		desc: "Capture leads using our landing pages, surveys, forms, calendars, inbound phone system & more!",
+	},
+	{
+		id: 3,
+		title: "Nurture",
+		desc: "Capture leads using our landing pages, surveys, forms, calendars, inbound phone system & more!",
+	},
 ];

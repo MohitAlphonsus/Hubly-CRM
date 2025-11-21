@@ -1,14 +1,17 @@
 :root {
 	--font: "Barlow", sans-serif;
 	--color-bg: #f8fbfe;
-	--color-bg-2:#EBF1F9;
+	--color-bg-2: #ebf1f9;
 	--color-white: #fff;
-	--color-dark:#1B1A1A;
+	--color-dark: #1b1a1a;
 	--color-primary: #3a7abd;
 	--color-primary-light: #30404d;
 	--color-primary-dark: #244779;
+	--color-primary-dark-2: #256cb5;
 
-	--text-light:#36364a:
+	--text-light: #36364a;
+	--text-light-2: #394b59;
+	--border-light: rgba(111, 165, 215, 0.16);
 }
 
 * {
@@ -43,17 +46,38 @@ button {
 	padding: 11.7rem 0;
 }
 
+.section-heading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 2rem;
+	width: 72.5rem;
+}
+
 .heading-primary {
 	font-size: 5.4rem;
 }
 
 .heading-secondary {
 	font-size: 4.4rem;
+	font-weight: 700;
+}
+
+.heading-tertiary {
+	font-size: 3.6rem;
 	font-weight: 600;
+}
+
+.heading-quaternary {
+	font-size: 2.4rem;
+	font-weight: 700;
 }
 
 .text-primary {
 	font-size: 1.8rem;
 }
 
-
+.text-light {
+	color: var(--text-light-2);
+}
