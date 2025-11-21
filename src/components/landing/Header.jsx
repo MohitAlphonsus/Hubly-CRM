@@ -1,12 +1,11 @@
+import Logo from "./Logo";
 import { Button } from "../ui";
 import styles from "./Header.module.css";
 
 export default function Header() {
 	return (
 		<header className={styles.header}>
-			<div className={styles.logo}>
-				<img src="/src/assets/logo.svg" alt="logo" />
-			</div>
+			<Logo />
 			<div className={styles.actions}>
 				<Button size="small" isLink={true}>
 					Login

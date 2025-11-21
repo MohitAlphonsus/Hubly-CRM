@@ -11,8 +11,6 @@
 	--text-light: 240 16% 25%;
 	--text-light-2: 206 22% 29%;
 	--border-light: 209 57% 64%;
-
-	/* --color:hsl(215, 54%, 31%); */
 }
 
 * {
@@ -36,6 +34,14 @@ body {
 input,
 button {
 	font: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
 }
 
 .container {

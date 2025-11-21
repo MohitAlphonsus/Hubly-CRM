@@ -1,4 +1,11 @@
-import { Header, Hero, Brands, About, Pricing } from "../components/landing";
+import {
+	Header,
+	Hero,
+	Brands,
+	About,
+	Pricing,
+	Footer,
+} from "../components/landing";
 export default function Landing() {
 	return (
 		<>
@@ -7,6 +14,7 @@ export default function Landing() {
 			<Brands />
 			<About />
 			<Pricing />
+			<Footer />
 		</>
 	);
 }

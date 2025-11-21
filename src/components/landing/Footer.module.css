@@ -1,0 +1,38 @@
+.footer {
+	background-color: hsl(var(--color-white));
+	color: hsl(var(--color-dark));
+	margin-top: 11.7rem;
+	padding: 8rem 0;
+}
+
+.footer__layout {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	row-gap: 4.2rem;
+
+	h5 {
+		font-weight: 500;
+		font-size: 1.8rem;
+		margin-bottom: 2rem;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+	}
+
+	a {
+		color: hsl(var(--color-dark));
+		font-size: 1.6rem;
+		transition: font-weight 0.1s;
+
+		&:hover {
+			font-weight: 500;
+		}
+	}
+}
+
+.footer__logo {
+	grid-row: 1 / 3;
+}
