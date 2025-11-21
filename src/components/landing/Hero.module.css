@@ -1,3 +1,7 @@
+.hero__section {
+	padding-bottom: 11.7rem;
+}
+
 .hero {
 	display: flex;
 	align-items: center;

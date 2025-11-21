@@ -5,7 +5,7 @@ import playBtn from "/src/assets/play-button.svg";
 
 export default function Hero() {
 	return (
-		<section className="section">
+		<section className={`section ${styles.hero__section}`}>
 			<div className="container">
 				<div className={styles.hero}>
 					<div className={styles.hero__content}>
