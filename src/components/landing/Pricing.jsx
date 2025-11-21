@@ -1,4 +1,6 @@
+import { PRICING_PLANS } from "../../constants";
 import styles from "./Pricing.module.css";
+import Card from "./Card";
 
 export default function Pricing() {
 	return (
@@ -12,7 +14,11 @@ export default function Pricing() {
 							sales and marketing tools ALL businesses need under one platform.
 						</p>
 					</div>
-					<div className={styles.pricing__cards}></div>
+					<div className={styles.pricing__cards}>
+						{PRICING_PLANS.map((pricingPlan) => (
+							<Card key={pricingPlan.id} pricingPlan={pricingPlan} />
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

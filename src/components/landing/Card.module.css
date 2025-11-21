@@ -1,5 +1,56 @@
 .card {
 	background-color: var(--color-white);
 	border: 2px solid var(--border-light);
-	padding: 2rem;
+	padding: 4rem;
+	border-radius: 2.4rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	h3 {
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 2rem;
+		font-weight: 500;
+		opacity: 0.7;
+	}
+}
+
+.price {
+	font-size: 5.4rem;
+	color: var(--color-primary);
+
+	span {
+		color: #98a8b3;
+		font-size: 2rem;
+		font-weight: 500;
+	}
+}
+
+.features__included {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	h6 {
+		font-size: 1.8rem;
+		font-weight: 700;
+	}
+}
+
+.features {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.features li {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 1.8rem;
+	font-weight: 500;
 }
