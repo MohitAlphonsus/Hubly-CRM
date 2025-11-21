@@ -1,17 +1,18 @@
 :root {
 	--font: "Barlow", sans-serif;
-	--color-bg: #f8fbfe;
-	--color-bg-2: #ebf1f9;
-	--color-white: #fff;
-	--color-dark: #1b1a1a;
-	--color-primary: #3a7abd;
-	--color-primary-light: #30404d;
-	--color-primary-dark: #244779;
-	--color-primary-dark-2: #256cb5;
+	--color-bg: 210 75% 98%;
+	--color-bg-2: 214 54% 95%;
+	--color-white: 0 0% 100%;
+	--color-dark: 0 2% 10%;
+	--color-primary: 211 53% 48%;
+	--color-primary-light: 207 23% 25%;
+	--color-primary-dark: 215 54% 31%;
+	--color-primary-dark-2: 210 66% 43%;
+	--text-light: 240 16% 25%;
+	--text-light-2: 206 22% 29%;
+	--border-light: 209 57% 64%;
 
-	--text-light: #36364a;
-	--text-light-2: #394b59;
-	--border-light: rgba(111, 165, 215, 0.16);
+	/* --color:hsl(215, 54%, 31%); */
 }
 
 * {
@@ -28,8 +29,8 @@ html {
 body {
 	font-size: 1.6rem;
 	font-family: var(--font);
-	background-color: var(--color-bg);
-	color: var(--color-primary-light);
+	background-color: hsl(var(--color-bg));
+	color: hsl(var(--color-primary-light));
 }
 
 input,
@@ -79,5 +80,5 @@ button {
 }
 
 .text-light {
-	color: var(--text-light-2);
+	color: hsl(var(--text-light-2));
 }

@@ -36,7 +36,7 @@
 		content: "";
 		height: 25rem;
 		width: 25rem;
-		background-color: red;
+		background-color: hsl(var(--color-primary-dark-2));
 		border-radius: 50%;
 		filter: blur(20rem);
 		z-index: -1;
@@ -45,13 +45,11 @@
 	&::before {
 		right: 2rem;
 		top: 2rem;
-		background-color: var(--color-primary-dark-2);
 	}
 
 	&::after {
 		bottom: 2rem;
 		left: 2rem;
-		background-color: var(--color-primary-dark-2);
 	}
 
 	& img {

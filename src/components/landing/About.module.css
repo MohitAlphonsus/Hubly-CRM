@@ -7,8 +7,8 @@
 
 .about__content {
 	width: 100%;
-	border: 2px solid var(--border-light);
-	background-color: var(--color-white);
+	border: 2px solid hsl(var(--border-light) / 0.16);
+	background-color: hsl(var(--color-white));
 	border-radius: 2.4rem;
 	display: flex;
 	align-items: center;
@@ -70,7 +70,7 @@
 		height: 20rem;
 		border-radius: 50%;
 		opacity: 0.6;
-		background-color: var(--color-primary-dark-2);
+		background-color: hsl(var(--color-primary-dark-2));
 		filter: blur(120px);
 		top: -10%;
 		left: 50%;

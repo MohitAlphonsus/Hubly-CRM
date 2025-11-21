@@ -24,15 +24,15 @@
 }
 
 .btn--primary {
-	background-color: var(--color-primary-dark);
-	color: var(--color-white);
+	background-color: hsl(var(--color-primary-dark));
+	color: hsl(var(--color-white));
 }
 
 .btn--secondary {
 	background: none;
-	color: var(--color-primary-light);
+	color: hsl(var(--color-primary-light));
 }
 
 .link--primary {
-	color: var(--text-light);
+	color: hsl(var(--text-light));
 }

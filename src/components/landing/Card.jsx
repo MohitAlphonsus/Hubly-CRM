@@ -23,6 +23,7 @@ export default function Card({ pricingPlan }) {
 					))}
 				</ul>
 			</div>
+			<button className={styles.card__btn}>{action}</button>
 		</div>
 	);
 }
