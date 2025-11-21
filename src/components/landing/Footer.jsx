@@ -1,5 +1,5 @@
 import Logo from "./Logo";
-import { FOOTER_LINKS } from "../../constants";
+import { FOOTER_LINKS, SOCIAL_ICONS } from "../../constants";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -20,6 +20,11 @@ export default function Footer() {
 							</ul>
 						</div>
 					))}
+					<div className={styles.footer__socials}>
+						{SOCIAL_ICONS.map((icon) => (
+							<img src={icon.icon} alt="social-icon" />
+						))}
+					</div>
 				</div>
 			</div>
 		</footer>
