@@ -22,7 +22,7 @@ export default function Footer() {
 					))}
 					<div className={styles.footer__socials}>
 						{SOCIAL_ICONS.map((icon) => (
-							<img src={icon.icon} alt="social-icon" />
+							<img key={icon.id} src={icon.icon} alt="social-icon" />
 						))}
 					</div>
 				</div>

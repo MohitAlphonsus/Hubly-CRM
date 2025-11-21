@@ -10,3 +10,23 @@
 .brands img {
 	width: 14rem;
 }
+
+@media (max-width: 61.25em) {
+	.brands img {
+		width: 10rem;
+	}
+}
+
+@media (max-width: 48em) {
+	.brands {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2rem;
+	}
+}
+
+@media (max-width: 38.75em) {
+	.brands {
+		margin-top: 4rem;
+	}
+}

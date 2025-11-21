@@ -10,6 +10,7 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	row-gap: 4.2rem;
+	padding: 0 1rem;
 
 	h5 {
 		font-weight: 500;
@@ -45,4 +46,30 @@
 	display: flex;
 	align-items: center;
 	gap: 2.2rem;
+}
+
+@media (max-width: 48em) {
+	.footer__layout {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.footer__logo {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 38.75em) {
+	.footer__layout {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 23.43em) {
+	.footer__layout {
+		grid-template-columns: 1fr;
+	}
+	.footer__socials {
+		bottom: -5rem;
+		left: 1rem;
+		gap: 1.2rem;
+	}
 }

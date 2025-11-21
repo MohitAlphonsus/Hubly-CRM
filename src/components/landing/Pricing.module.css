@@ -10,3 +10,15 @@
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2.4rem;
 }
+
+@media (max-width: 48em) {
+	.pricing__cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 38.75em) {
+	.pricing {
+		padding: 1rem;
+	}
+}

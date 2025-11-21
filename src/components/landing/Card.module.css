@@ -67,3 +67,40 @@
 	margin-top: auto;
 	cursor: pointer;
 }
+
+@media (max-width: 38.75em) {
+	.card {
+		gap: 1.6rem;
+		p {
+			font-size: 1.6rem;
+		}
+	}
+
+	.price {
+		font-size: 4rem;
+
+		span {
+			font-size: 1.6rem;
+		}
+	}
+
+	.features__included {
+		gap: 1.6rem;
+		h6 {
+			font-size: 1.6rem;
+		}
+	}
+	.features {
+		gap: 1.6rem;
+	}
+
+	.features li {
+		font-size: 1.6rem;
+	}
+
+	.card__btn {
+		height: 5rem;
+		font-size: 1.6rem;
+		margin-top: 2rem;
+	}
+}

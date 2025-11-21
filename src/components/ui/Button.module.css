@@ -35,3 +35,15 @@
 .link--primary {
 	color: hsl(var(--text-light));
 }
+
+@media (max-width: 38.75em) {
+	.btn--small {
+		font-size: 1.6rem;
+		padding: 0.6rem 1.2rem;
+	}
+
+	.btn--medium {
+		font-size: 1.8rem;
+		padding: 1rem 3rem;
+	}
+}
