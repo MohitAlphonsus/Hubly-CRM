@@ -11,5 +11,11 @@
 		padding: 1.5rem;
 		border-radius: 10rem;
 		margin-top: 4rem;
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			background-color: hsl(var(--color-primary-light-2));
+		}
 	}
 }

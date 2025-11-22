@@ -24,14 +24,27 @@
 	max-width: 59.2rem;
 	margin: 0 auto;
 	margin-top: 6rem;
+	position: relative;
+
+	.link__text {
+		position: absolute;
+		top: -12%;
+		right: 0;
+	}
 
 	p {
 		margin-top: 8rem;
 		text-align: center;
 		font-size: 1.4rem;
 		color: hsl(var(--color-dark));
+
 		a {
 			color: hsl(var(--color-primary-dark));
+		}
+
+		.link {
+			text-decoration: underline;
+			color: #4831d4;
 		}
 	}
 }

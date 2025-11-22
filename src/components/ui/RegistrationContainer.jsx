@@ -3,7 +3,11 @@ import regImage from "../../assets/reg-page.jpg";
 import logo from "../../assets/logo.svg";
 import styles from "./RegistrationContainer.module.css";
 
-export default function RegistrationContainer({ title, children, action }) {
+export default function RegistrationContainer({
+	title,
+	children,
+	action = "signup",
+}) {
 	return (
 		<section className={styles.reg__container}>
 			<div className={styles.reg__form}>
@@ -13,10 +17,13 @@ export default function RegistrationContainer({ title, children, action }) {
 				<div className={styles.reg__form__container}>
 					<h4 className="heading-quaternary">{title}</h4>
 					{children}
-					<p>
-						Don't have an account?{" "}
-						<Link to={`/${action}`}>
-							{action === "login" ? "Sign Up" : "Log In"}
+					<p className={`${action === "login" && styles.link__text}`}>
+						{action === "login" ? "" : "Don't have an account?"}
+						<Link
+							to={`/${action}`}
+							className={`${action === "login" && styles.link}`}
+						>
+							{action === "login" ? "Sign In Instead" : "Sign Up"}
 						</Link>
 					</p>
 				</div>
