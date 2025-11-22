@@ -12,6 +12,13 @@ import discordIcon from "../assets/socials/discord.svg";
 import figmaIcon from "../assets/socials/figma.svg";
 import instagramIcon from "../assets/socials/instagram.svg";
 
+import dashboardHomeIcon from "../assets/icons/d-home-icon.svg";
+import dashboardChatIcon from "../assets/icons/d-chat-icon.svg";
+import dashboardBarIcon from "../assets/icons/d-bars-icon.svg";
+import dashboardBotIcon from "../assets/icons/d-bot-icon.svg";
+import dashboardTeamIcon from "../assets/icons/d-team-icon.svg";
+import dashboardSettingsIcon from "../assets/icons/d-setting-icon.svg";
+
 export const BRANDS = [
 	{ name: "Adobe", logo: adobeLogo },
 	{ name: "Elastic", logo: elasticLogo },
@@ -122,4 +129,38 @@ export const SOCIAL_ICONS = [
 	{ id: 5, icon: discordIcon },
 	{ id: 6, icon: figmaIcon },
 	{ id: 7, icon: instagramIcon },
+];
+
+export const DASHBOARD_LINKS = [
+	{
+		id: 1,
+		icon: dashboardHomeIcon,
+		title: "Dashboard",
+		route: "/admin/dashboard",
+	},
+	{
+		id: 2,
+		icon: dashboardChatIcon,
+		title: "Contact Center",
+		route: "/admin/chats",
+	},
+	{
+		id: 3,
+		icon: dashboardBarIcon,
+		title: "Analytics",
+		route: "/admin/analytics",
+	},
+	{
+		id: 4,
+		icon: dashboardBotIcon,
+		title: "Chat Bots",
+		route: "/admin/bots",
+	},
+	{ id: 5, icon: dashboardTeamIcon, title: "Team", route: "/admin/team" },
+	{
+		id: 6,
+		icon: dashboardSettingsIcon,
+		title: "Setting",
+		route: "/admin/setting",
+	},
 ];
