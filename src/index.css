@@ -2,6 +2,7 @@
 	--font: "Barlow", sans-serif;
 	--color-bg: 210 75% 98%;
 	--color-bg-2: 214 54% 95%;
+	--color-bg-3: 210, 25%, 98%;
 	--color-white: 0 0% 100%;
 	--color-white-2: 0 0% 93%;
 	--color-dark: 0 2% 10%;
@@ -16,6 +17,7 @@
 
 	--color-gray-light: 0 0% 40%;
 	--color-gray-lihgt-2: 0 0% 76%;
+	--color-gray-dark: hsl(0, 0%, 26%);
 }
 
 * {
