@@ -19,3 +19,9 @@
 		}
 	}
 }
+
+/* For admin panel */
+.app__layout {
+	min-height: 100vh;
+	display: flex;
+}
