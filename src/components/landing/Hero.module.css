@@ -127,14 +127,14 @@
 
 	.hero__image__card {
 		top: -4rem;
-		right: -6rem;
+		right: -3rem;
 		width: 22rem;
 	}
 	.hero__image__calender {
 		width: 25rem;
 		height: 18rem;
-		bottom: -8rem;
-		left: -6rem;
+		bottom: -9rem;
+		left: -3rem;
 	}
 	.hero__image__graph {
 		width: 15rem;

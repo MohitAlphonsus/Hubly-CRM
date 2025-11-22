@@ -66,10 +66,11 @@
 @media (max-width: 23.43em) {
 	.footer__layout {
 		grid-template-columns: 1fr;
+		padding: 2rem;
 	}
 	.footer__socials {
 		bottom: -5rem;
-		left: 1rem;
+		left: 2rem;
 		gap: 1.2rem;
 	}
 }
