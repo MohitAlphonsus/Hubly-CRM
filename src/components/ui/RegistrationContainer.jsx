@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import regImage from "../../assets/reg-page.jpg";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/icons/logo.svg";
 import styles from "./RegistrationContainer.module.css";
 
 export default function RegistrationContainer({

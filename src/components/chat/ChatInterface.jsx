@@ -1,4 +1,4 @@
-import sendIcon from "../../assets/send-icon.svg";
+import sendIcon from "../../assets/icons/send-icon.svg";
 import styles from "./ChatInterface.module.css";
 
 export default function ChatInterface({ icon }) {

@@ -1,5 +1,5 @@
 import styles from "./Card.module.css";
-import checkIcon from "../../assets/Check icon.svg";
+import checkIcon from "../../assets/icons/Check icon.svg";
 
 export default function Card({ pricingPlan }) {
 	const { plan, desc, price, included, action } = pricingPlan;

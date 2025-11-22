@@ -1,7 +1,7 @@
 import { useState } from "react";
-import chatInterfaceIcon from "../../assets/chat-icon.svg";
-import closeIcon from "../../assets/close-icon.svg";
-import hublyInterfaceIcon from "../../assets/hubly-interface-icon.svg";
+import chatInterfaceIcon from "../../assets/icons/chat-icon.svg";
+import closeIcon from "../../assets/icons/close-icon.svg";
+import hublyInterfaceIcon from "../../assets/icons/hubly-interface-icon.svg";
 import ChatInterface from "./ChatInterface";
 import styles from "./ChatInterfaceContainer.module.css";
 

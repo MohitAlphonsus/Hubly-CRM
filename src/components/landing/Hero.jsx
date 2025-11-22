@@ -1,7 +1,7 @@
 import { Button } from "../ui";
 import styles from "./Hero.module.css";
-import arrowRight from "/src/assets/arrow-right.svg";
-import playBtn from "/src/assets/play-button.svg";
+import arrowRight from "../../assets/icons/arrow-right.svg";
+import playBtn from "../../assets/icons/play-button.svg";
 
 export default function Hero() {
 	return (
