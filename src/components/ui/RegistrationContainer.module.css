@@ -55,3 +55,24 @@
 	background-position: 100%;
 	background-size: cover;
 }
+
+@media (max-width: 65em) {
+	.reg__form {
+		flex-basis: 60%;
+		padding: 2rem;
+	}
+
+	.reg__image {
+		flex-basis: 40%;
+	}
+}
+
+@media (max-width: 45em) {
+	.reg__form {
+		flex-basis: 100%;
+		padding: 2rem;
+	}
+	.reg__image {
+		display: none;
+	}
+}
