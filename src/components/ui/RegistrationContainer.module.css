@@ -1,0 +1,44 @@
+.reg__container {
+	min-height: 100vh;
+	background-color: hsl(var(--color-white));
+	display: flex;
+}
+
+.reg__form {
+	flex-basis: 70%;
+	padding: 4rem;
+
+	img {
+		width: 14rem;
+	}
+
+	p {
+		font-size: 1.2rem;
+		color: #676b5f;
+		margin-top: 10rem;
+		text-align: center;
+	}
+}
+
+.reg__form__container {
+	max-width: 59.2rem;
+	margin: 0 auto;
+	margin-top: 6rem;
+
+	p {
+		margin-top: 8rem;
+		text-align: center;
+		font-size: 1.4rem;
+		color: hsl(var(--color-dark));
+		a {
+			color: hsl(var(--color-primary-dark));
+		}
+	}
+}
+
+.reg__image {
+	flex-basis: 30%;
+	background-repeat: no-repeat;
+	background-position: 100%;
+	background-size: cover;
+}

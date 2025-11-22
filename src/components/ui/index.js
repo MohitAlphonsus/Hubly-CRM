@@ -1,3 +1,4 @@
 import Button from "./Button";
+import RegistrationContainer from "./RegistrationContainer";
 
-export { Button };
+export { Button, RegistrationContainer };

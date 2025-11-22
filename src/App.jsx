@@ -1,9 +1,9 @@
-import Landing from "./pages/Landing";
+import Layout from "./router/Layout";
 
 export default function App() {
 	return (
 		<>
-			<Landing />
+			<Layout />
 		</>
 	);
 }

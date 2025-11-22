@@ -13,6 +13,9 @@
 	--text-light: 240 16% 25%;
 	--text-light-2: 206 22% 29%;
 	--border-light: 209 57% 64%;
+
+	--color-gray-light: 0 0% 40%;
+	--color-gray-lihgt-2: 0 0% 76%;
 }
 
 * {

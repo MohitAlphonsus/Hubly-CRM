@@ -1,0 +1,22 @@
+.form__group {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	label {
+		font-size: 1.3rem;
+		color: hsl(var(--color-gray-light));
+	}
+
+	input {
+		width: 100%;
+		border: 1px solid hsl(var(--color-gray-light) / 35%);
+		padding: 1rem;
+		border-radius: 8px;
+		font-size: 1.4rem;
+
+		&:focus {
+			outline: 1px solid hsl(var(--color-primary) / 35%);
+		}
+	}
+}
