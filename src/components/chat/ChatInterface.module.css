@@ -1,0 +1,65 @@
+.chatInterface {
+	--header-height: 6.8rem;
+	--footer-height: 5.6rem;
+	width: 37.6rem;
+	height: 53rem;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+
+	header {
+		height: var(--header-height);
+		background-color: hsl(var(--color-primary-light-2));
+		color: hsl(var(--color-white));
+		display: flex;
+		align-items: center;
+		gap: 1.3rem;
+		padding: 1.6rem;
+
+		img {
+			border-radius: 50%;
+			outline: 2px solid hsl(var(--color-white));
+		}
+	}
+
+	main {
+		background-color: hsl(var(--color-white-2));
+		height: calc(100% - var(--header-height) - var(--footer-height));
+	}
+
+	footer {
+		height: var(--footer-height);
+		background-color: hsl(var(--color-white));
+		margin-top: auto;
+
+		form {
+			height: 100%;
+			display: flex;
+
+			input {
+				flex-basis: 80%;
+				border: none;
+				padding-inline: 2rem;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			button {
+				flex-basis: 20%;
+				border: none;
+				background: hsl(var(--color-white));
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media (max-width: 38.75em) {
+	.chatInterface {
+		width: calc(100vw - 1.8rem);
+	}
+}

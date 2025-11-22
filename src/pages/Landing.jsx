@@ -6,6 +6,7 @@ import {
 	Pricing,
 	Footer,
 } from "../components/landing";
+import ChatInterfaceContainer from "../components/chat/ChatInterfaceContainer";
 export default function Landing() {
 	return (
 		<>
@@ -15,6 +16,7 @@ export default function Landing() {
 			<About />
 			<Pricing />
 			<Footer />
+			<ChatInterfaceContainer />
 		</>
 	);
 }
