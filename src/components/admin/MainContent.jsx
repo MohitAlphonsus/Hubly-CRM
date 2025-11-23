@@ -14,7 +14,12 @@ export default function MainContent() {
 	if (path === "setting") title = "Settings";
 
 	return (
-		<main className={styles.main__content}>
+		<main
+			className={styles.main__content}
+			style={
+				path === "chats" ? { background: "#FAFBFC" } : { background: "#FFFFFF" }
+			}
+		>
 			<h3>{title}</h3>
 			<Outlet />
 		</main>

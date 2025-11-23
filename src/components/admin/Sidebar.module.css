@@ -6,6 +6,7 @@
 	align-items: center;
 	gap: 3rem;
 	padding-block: 1.5rem;
+	border-right: 1px solid #d1d6da;
 
 	ul {
 		display: flex;
