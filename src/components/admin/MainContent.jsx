@@ -1,5 +1,22 @@
+import { Outlet, useLocation } from "react-router";
 import styles from "./MainContent.module.css";
 
 export default function MainContent() {
-	return <main className={styles.main__content}></main>;
+	const { pathname } = useLocation();
+	const path = pathname.split("/")[2];
+	let title;
+
+	if (path === "dashboard") title = "Dashboard";
+	if (path === "chats") title = "Contact Center";
+	if (path === "analytics") title = "Analytics";
+	if (path === "bots") title = "Chat Bots";
+	if (path === "team") title = "Team";
+	if (path === "setting") title = "Settings";
+
+	return (
+		<main className={styles.main__content}>
+			<h3>{title}</h3>
+			<Outlet />
+		</main>
+	);
 }
