@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { teamSignup } from "../api/teamAuthApi";
+import { teamSignup, teamLogin } from "../api/teamAuthApi";
 
 const TeamAuthContext = createContext();
 

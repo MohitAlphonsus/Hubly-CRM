@@ -6,7 +6,7 @@
 
 	button {
 		border: none;
-		background-color: hsl(var(--color-gray-lihgt-2));
+		background-color: hsl(var(--color-gray-light-2));
 		color: hsl(var(--color-white));
 		padding: 1.5rem;
 		border-radius: 10rem;
