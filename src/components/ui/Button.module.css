@@ -32,8 +32,9 @@
 	color: hsl(var(--color-primary-light));
 }
 
-.link--primary {
-	color: hsl(var(--text-light));
+.btn--tertiary {
+	background: none;
+	color: hsl(var(--color-primary-light));
 }
 
 @media (max-width: 38.75em) {

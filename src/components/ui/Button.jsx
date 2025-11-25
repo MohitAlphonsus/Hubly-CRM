@@ -5,27 +5,14 @@ export default function Button({
 	icon,
 	size,
 	variant = "primary",
-	isLink = false,
 	iconLeft = false,
+	className = undefined
 }) {
-	if (isLink) {
-		return (
-			<a
-				href="#"
-				className={`${styles.btn} ${styles["link--primary"]} ${
-					styles[`btn--${size}`]
-				}`}
-			>
-				{children}
-			</a>
-		);
-	}
 	return (
 		<button
 			onClick={onClick}
-			className={`${styles.btn} ${styles[`btn--${variant}`]} ${
-				styles[`btn--${size}`]
-			}`}
+			className={`${styles.btn} ${styles[`btn--${variant}`]} ${styles[`btn--${size}`]
+				} ${className}`}
 		>
 			{iconLeft && icon && icon}
 			{children}
