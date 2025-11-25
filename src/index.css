@@ -15,7 +15,7 @@
 	--text-light-2: 206 22% 29%;
 	--border-light: 209 57% 64%;
 	--color-gray-light: 0 0% 40%;
-	--color-gray-lihgt-2: 0 0% 76%;
+	--color-gray-light-2: 0 0% 76%;
 	--color-gray-dark: hsl(0, 0%, 26%);
 }
 
@@ -106,6 +106,7 @@ a {
 	.section {
 		padding-top: 8rem;
 	}
+
 	.heading-primary {
 		font-size: 4rem;
 	}
