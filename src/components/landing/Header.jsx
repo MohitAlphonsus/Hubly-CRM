@@ -9,7 +9,7 @@ export default function Header() {
 			<Logo />
 			<div className={styles.actions}>
 				<Link to="/login">
-					<Button size="small" isLink={true}>
+					<Button size="small" variant="tertiary">
 						Login
 					</Button>
 				</Link>
