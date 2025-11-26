@@ -1,5 +1,6 @@
 import sendIcon from "../../assets/icons/send-icon.svg";
 import styles from "./ChatInterface.module.css";
+import ChatInterfaceForm from "./ChatInterfaceForm";
 
 export default function ChatInterface({ icon }) {
 	return (
@@ -8,7 +9,13 @@ export default function ChatInterface({ icon }) {
 				<img src={icon} alt="hubly-interface-icon" />
 				<span>Hubly</span>
 			</header>
-			<main></main>
+			<main>
+				<p className={`${styles.chat__bubble} ${styles.chat__image}`}>
+					How can I help you?
+				</p>
+				<p className={styles.chat__bubble}>Ask me anything!</p>
+				<ChatInterfaceForm />
+			</main>
 			<footer>
 				<form>
 					<input type="text" placeholder="Write a message" />
