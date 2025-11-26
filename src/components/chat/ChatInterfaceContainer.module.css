@@ -15,39 +15,6 @@
 	align-self: flex-end;
 }
 
-.initialMessage {
-	background-color: hsl(var(--color-white));
-	color: hsl(var(--color-primary-light-2));
-	border-radius: 5px;
-	padding: 4rem 2rem 2rem 2rem;
-	width: 24rem;
-	position: relative;
-	font-size: 1.4rem;
-	line-height: 1.7;
-
-	img {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	button {
-		background: none;
-		border: none;
-		position: absolute;
-		top: 0;
-		right: 2rem;
-		font-size: 3rem;
-		color: hsl(var(--color-primary-light-2) / 0.5);
-		cursor: pointer;
-
-		&:hover {
-			color: hsl(var(--color-primary-light-2));
-		}
-	}
-}
-
 @media (max-width: 38.75em) {
 	.chatInterfaceContainer {
 		right: 1rem;

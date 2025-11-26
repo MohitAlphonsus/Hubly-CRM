@@ -1,12 +1,13 @@
 import sendIcon from "../../assets/icons/send-icon.svg";
-import styles from "./ChatInterface.module.css";
+import hublyInterfaceIcon from "../../assets/icons/hubly-interface-icon.svg";
 import ChatInterfaceForm from "./ChatInterfaceForm";
 
-export default function ChatInterface({ icon }) {
+import styles from "./ChatInterface.module.css";
+export default function ChatInterface({ readonly = false }) {
 	return (
-		<div className={styles.chatInterface}>
+		<div className={`${styles.chatInterface} ${readonly && styles.readonly}`}>
 			<header>
-				<img src={icon} alt="hubly-interface-icon" />
+				<img src={hublyInterfaceIcon} alt="hubly-interface-icon" />
 				<span>Hubly</span>
 			</header>
 			<main>
