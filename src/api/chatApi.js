@@ -1,21 +1,25 @@
 import API from "./axiosInstance";
 
 export function startChat(data) {
-  return API.post("/user/chat", data);
+	return API.post("/user/chat", data);
 }
 
 export function sendUserMessage(data) {
-  return API.post("/messages/user", data);
+	return API.post("/messages/user", data);
 }
 
 export function sendAdminMessage(data) {
-  return API.post("/messages/admin", data);
+	return API.post("/messages/admin", data);
 }
 
 export function getUserMessages(sessionToken) {
-  return API.get("/messages/user", { params: { sessionToken } });
+	return API.get("/messages/user", { params: { sessionToken } });
 }
 
 export function getMessages() {
-  return API.get("/messages/all");
+	return API.get("/messages/all");
+}
+
+export function getMessagesByUserId(userId) {
+	return API.get(`/messages/admin/${userId}`);
 }

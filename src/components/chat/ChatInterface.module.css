@@ -81,18 +81,23 @@ main {
 	img {
 		width: 3rem;
 	}
-}
-.chat__bubble__wrapper {
-	display: flex;
-	gap: 1rem;
-}
 
-.chat__bubble {
-	background-color: hsl(var(--color-white));
-	color: hsl(var(--color-dark));
-	padding: 1rem;
-	width: 70%;
-	border-radius: 3px;
+	.chat__bubble__request,
+	.chat__bubble__response {
+		color: hsl(var(--color-dark));
+		padding: 1rem;
+		width: 70%;
+		border-radius: 3px;
+	}
+
+	.chat__bubble__request {
+		background-color: hsl(var(--color-white));
+		align-self: end;
+	}
+
+	.chat__bubble__response {
+		background-color: hsl(var(--color-white));
+	}
 }
 
 .chat__image {
