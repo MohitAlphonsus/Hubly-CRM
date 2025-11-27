@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import sendIcon from "../../../assets/icons/d-send-icon.svg";
 import { useChat } from "../../../hooks/useChat";
-import {
-	generateInitials,
-	capitalizeWords,
-	formatChatDate,
-} from "../../../utils";
+import { formatChatDate } from "../../../utils";
 
 import styles from "./ContactCenter.module.css";
+import ChatUser from "./d-ui/ChatUser";
+import ChatDetails from "./d-ui/ChatDetails";
 export default function ContactCenter() {
 	const [responseMessage, setResponseMessage] = useState("");
 	const {
@@ -52,21 +50,12 @@ export default function ContactCenter() {
 				{/* users list */}
 				<div className={styles.chat__users__list}>
 					{users.map((user) => (
-						<div
-							className={`${styles.chat__user} ${
-								user._id === userId && styles.active__user
-							}`}
+						<ChatUser
+							user={user}
 							key={user._id}
-							onClick={() => setUserId(user._id)}
-						>
-							<div className={styles.chat__user__profile}>
-								{generateInitials(user.name)}
-							</div>
-							<p className={styles.chat__user__name}>
-								{capitalizeWords(user.name)}
-							</p>
-							<p className={styles.chat__user__msg}>{user.latestMessage}</p>
-						</div>
+							userId={userId}
+							setUserId={setUserId}
+						/>
 					))}
 				</div>
 			</div>
@@ -105,6 +94,7 @@ export default function ContactCenter() {
 								);
 							})}
 						</div>
+
 						<div className={styles.chat__input}>
 							<form onSubmit={handleSubmit}>
 								<textarea
@@ -124,7 +114,7 @@ export default function ContactCenter() {
 			</div>
 
 			{/* user details / team */}
-			<div className={styles.chat__user__details}></div>
+			<ChatDetails userId={userId} />
 		</div>
 	);
 }
