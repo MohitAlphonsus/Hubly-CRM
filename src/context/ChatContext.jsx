@@ -4,9 +4,9 @@ import {
 	sendUserMessage,
 	sendAdminMessage,
 	getUserMessages,
-	getMessages,
 	getMessagesByUserId,
 	getAllUsers,
+	getUserById,
 } from "../api/chatApi";
 
 const ChatContext = createContext();
@@ -21,6 +21,7 @@ function ChatProvider({ children }) {
 	const [adminMessages, setAdminMessages] = useState([]);
 
 	const [users, setUsers] = useState([]);
+	const [selectedUser, setSelectedUser] = useState(null);
 
 	useEffect(() => {
 		if (sessionToken) {
@@ -76,6 +77,11 @@ function ChatProvider({ children }) {
 		setUsers(response.data.users);
 	};
 
+	const handleFetchUserById = async (userId) => {
+		const response = await getUserById(userId);
+		setSelectedUser(response.data.user);
+	};
+
 	return (
 		<ChatContext.Provider
 			value={{
@@ -97,7 +103,9 @@ function ChatProvider({ children }) {
 
 				// admin users list
 				users,
+				selectedUser,
 				handleFetchAllUsers,
+				handleFetchUserById,
 			}}
 		>
 			{children}
