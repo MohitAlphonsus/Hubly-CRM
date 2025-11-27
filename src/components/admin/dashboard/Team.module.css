@@ -1,0 +1,95 @@
+.team {
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 10px;
+	}
+
+	th {
+		border-top: 1px solid #6a6a6a;
+		border-bottom: 1px solid #6a6a6a;
+		padding: 1rem;
+		text-align: left;
+		color: #184e7f;
+		width: min-content;
+
+		&:nth-child(1) {
+			width: 1rem;
+		}
+		&:nth-child(2) {
+			width: 25rem;
+		}
+		&:nth-child(3) {
+			width: 20rem;
+		}
+		&:nth-child(4) {
+			width: 25rem;
+		}
+		&:nth-child(5) {
+			width: max-content;
+		}
+	}
+
+	td {
+		padding: 1rem;
+		border-bottom: 1px solid #e2e8f0;
+
+		button {
+			border: none;
+			background: none;
+			cursor: pointer;
+			&:not(:last-child) {
+				margin-right: 1rem;
+			}
+			img {
+				width: 1.5rem;
+			}
+		}
+	}
+}
+
+.avatar {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	display: grid;
+	place-content: center;
+	font-size: 1.4rem;
+	font-weight: 600;
+	border: 2px solid hsl(var(--color-gray-light-2));
+}
+
+.sortAction {
+	position: relative;
+	cursor: pointer;
+}
+
+.sortAction::before,
+.sortAction::after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	margin: 1px;
+}
+
+.sortAction::before {
+	border-bottom: 5px solid #6a6a6a;
+	right: 1rem;
+	top: 30%;
+}
+
+.sortAction::after {
+	border-top: 5px solid #6a6a6a;
+
+	right: 1rem;
+	bottom: 30%;
+}
+
+.team__button {
+	padding: 1rem 2rem;
+	margin-top: 2rem;
+	margin-left: auto;
+}
