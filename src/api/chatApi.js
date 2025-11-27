@@ -23,3 +23,7 @@ export function getMessages() {
 export function getMessagesByUserId(userId) {
 	return API.get(`/messages/admin/${userId}`);
 }
+
+export function getAllUsers() {
+	return API.get("/user/all");
+}

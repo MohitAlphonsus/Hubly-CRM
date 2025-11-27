@@ -6,6 +6,7 @@ import {
 	getUserMessages,
 	getMessages,
 	getMessagesByUserId,
+	getAllUsers,
 } from "../api/chatApi";
 
 const ChatContext = createContext();
@@ -15,18 +16,16 @@ function ChatProvider({ children }) {
 		localStorage.getItem("user-session") || null
 	);
 	const [userId, setUserId] = useState(localStorage.getItem("user-id") || null);
-	const [conversations, setConversations] = useState([]);
+
+	const [userMessages, setUserMessages] = useState([]);
+	const [adminMessages, setAdminMessages] = useState([]);
+
+	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
-		// const savedSessionToken = localStorage.getItem("session-token");
-		// const savedUserId = localStorage.getItem("user-id");
-
-		// if (savedSessionToken && savedUserId) {
-		// 	setSessionToken(savedSessionToken);
-		// 	setUserId(savedUserId);
-		// }
-
-		handleFetchUserMessages(sessionToken);
+		if (sessionToken) {
+			handleFetchUserMessages(sessionToken);
+		}
 	}, []);
 
 	const handleStartChat = async (formData) => {
@@ -39,6 +38,7 @@ function ChatProvider({ children }) {
 
 		localStorage.setItem("user-session", sessionToken);
 		localStorage.setItem("user-id", _id);
+		await handleFetchUserMessages(sessionToken);
 	};
 
 	const handleUserSendingMessage = async (message) => {
@@ -48,7 +48,7 @@ function ChatProvider({ children }) {
 		});
 
 		const newMessage = response.data.newMessage;
-		setConversations((prevMessages) => [...prevMessages, newMessage]);
+		setUserMessages((prevMessages) => [...prevMessages, newMessage]);
 	};
 
 	const handleAdminSendingMessage = async (message) => {
@@ -58,37 +58,46 @@ function ChatProvider({ children }) {
 		});
 
 		const newMessage = response.data.newMessage;
-		setConversations((prevMessages) => [...prevMessages, newMessage]);
-	};
-
-	const handleFetchAllMessages = async () => {
-		const response = await getMessages();
-		setConversations(response.data.messages);
+		setAdminMessages((prevMessages) => [...prevMessages, newMessage]);
 	};
 
 	const handleFetchUserMessages = async (sessionToken) => {
 		const response = await getUserMessages(sessionToken);
-		setConversations(response.data.messages);
+		setUserMessages(response.data.messages);
 	};
 
 	const handleFetchMessagesByUserId = async (userId) => {
 		const response = await getMessagesByUserId(userId);
-		setConversations(response.data.messages);
+		setAdminMessages(response.data.messages);
+	};
+
+	const handleFetchAllUsers = async () => {
+		const response = await getAllUsers();
+		setUsers(response.data.users);
 	};
 
 	return (
 		<ChatContext.Provider
 			value={{
+				// user session
 				sessionToken,
 				userId,
-				conversations,
-				setConversations,
+				setUserId,
+
+				// user chat
+				userMessages,
 				handleStartChat,
 				handleUserSendingMessage,
-				handleAdminSendingMessage,
-				handleFetchAllMessages,
 				handleFetchUserMessages,
+
+				// admin chat
+				adminMessages,
+				handleAdminSendingMessage,
 				handleFetchMessagesByUserId,
+
+				// admin users list
+				users,
+				handleFetchAllUsers,
 			}}
 		>
 			{children}

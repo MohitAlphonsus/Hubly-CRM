@@ -7,7 +7,7 @@ import { useChat } from "../../hooks/useChat";
 import styles from "./ChatInterface.module.css";
 export default function ChatInterface({ readonly = false }) {
 	const [message, setMessage] = useState("");
-	const { sessionToken, conversations, handleUserSendingMessage } = useChat();
+	const { sessionToken, userMessages, handleUserSendingMessage } = useChat();
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -15,6 +15,10 @@ export default function ChatInterface({ readonly = false }) {
 		await handleUserSendingMessage(message);
 		setMessage("");
 	}
+
+	const sortedMessages = userMessages.sort(
+		(a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+	);
 
 	return (
 		<div
@@ -36,16 +40,16 @@ export default function ChatInterface({ readonly = false }) {
 				)}
 
 				{sessionToken &&
-					conversations.map((conversation) => (
+					sortedMessages.map((msg) => (
 						<p
-							key={conversation._id}
+							key={msg._id}
 							className={
-								conversation.senderType === "user"
+								msg.senderType === "user"
 									? styles.chat__bubble__request
 									: styles.chat__bubble__response
 							}
 						>
-							{conversation.message}
+							{msg.message}
 						</p>
 					))}
 			</main>
