@@ -6,13 +6,16 @@ export default function Button({
 	size,
 	variant = "primary",
 	iconLeft = false,
-	className = undefined
+	className = undefined,
+	type = "button",
 }) {
 	return (
 		<button
 			onClick={onClick}
-			className={`${styles.btn} ${styles[`btn--${variant}`]} ${styles[`btn--${size}`]
-				} ${className}`}
+			className={`${styles.btn} ${styles[`btn--${variant}`]} ${
+				styles[`btn--${size}`]
+			} ${className}`}
+			type={type}
 		>
 			{iconLeft && icon && icon}
 			{children}
