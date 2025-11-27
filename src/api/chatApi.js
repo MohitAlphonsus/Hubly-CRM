@@ -16,14 +16,14 @@ export function getUserMessages(sessionToken) {
 	return API.get("/messages/user", { params: { sessionToken } });
 }
 
-export function getMessages() {
-	return API.get("/messages/all");
-}
-
 export function getMessagesByUserId(userId) {
 	return API.get(`/messages/admin/${userId}`);
 }
 
 export function getAllUsers() {
 	return API.get("/user/all");
+}
+
+export function getUserById(userId) {
+	return API.get(`/user/${userId}`);
 }
