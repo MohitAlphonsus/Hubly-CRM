@@ -6,13 +6,20 @@ import editIcon from "../../../assets/icons/d-edit-icon.svg";
 import deleteIcon from "../../../assets/icons/d-delete-icon.svg";
 import circlePlusIcon from "../../../assets/icons/circle-plus.svg";
 import { Button } from "../../ui";
+import Modal from "./d-ui/Modal";
+import TeamForm from "./d-ui/TeamForm";
 
 const ASCENDING = "ASCENDING";
 const DESCENDING = "DESCENDING";
 
 export default function Team() {
 	const [sortByNames, setSortByNames] = useState(ASCENDING);
+	const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 	const { team, handleFetchAllTeamMembers } = useTeam();
+
+	function handleFormModal() {
+		setIsFormModalOpen(!isFormModalOpen);
+	}
 
 	useEffect(() => {
 		handleFetchAllTeamMembers();
@@ -81,9 +88,23 @@ export default function Team() {
 				className={styles.team__button}
 				icon={<img src={circlePlusIcon} alt="circle-plus-icon" />}
 				iconLeft
+				onClick={() => setIsFormModalOpen(true)}
 			>
 				Add Team Member
 			</Button>
+			{isFormModalOpen && (
+				<Modal onClose={handleFormModal}>
+					<div className={styles.form__modal}>
+						<h2>Add Team Member</h2>
+						<p>
+							Talk with colleagues in a group chat. Messages in this group are
+							only visible to it's participants. New teammates may only be
+							invited by the administrators.
+						</p>
+						<TeamForm insideModal onClose={handleFormModal} />
+					</div>
+				</Modal>
+			)}
 		</div>
 	);
 }
