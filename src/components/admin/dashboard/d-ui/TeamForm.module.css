@@ -1,0 +1,14 @@
+.team__form form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.team__form form > * {
+	width: 60%;
+}
+
+.team__form form button {
+	align-self: flex-end;
+	width: auto;
+}
