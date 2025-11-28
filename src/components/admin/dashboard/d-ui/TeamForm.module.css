@@ -4,11 +4,20 @@
 	gap: 1rem;
 }
 
-.team__form form > * {
+.team__form form.modal-active .team__form form > * {
+	width: 100%;
+}
+
+.team__form form.modal-inactive .team__form form > * {
 	width: 60%;
 }
 
-.team__form form button {
+.team__form__actions {
 	align-self: flex-end;
+	display: flex;
+	align-items: center;
+}
+
+.team__form form button {
 	width: auto;
 }

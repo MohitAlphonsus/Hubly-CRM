@@ -3,7 +3,7 @@ import { Input } from "../../../form";
 import styles from "./TeamForm.module.css";
 import { Button } from "../../../ui";
 
-export default function TeamForm() {
+export default function TeamForm({ insideModal, onClose }) {
 	const [formData, setFormData] = useState({
 		firstName: "",
 		lastName: "",
@@ -13,7 +13,11 @@ export default function TeamForm() {
 	});
 	return (
 		<div className={styles.team__form}>
-			<form>
+			<form
+				className={
+					insideModal ? styles["modal-active"] : styles["modal-inactive"]
+				}
+			>
 				<Input
 					type="text"
 					label="First Name"
@@ -39,9 +43,16 @@ export default function TeamForm() {
 					name="confirmPassword"
 					placeholder="Password"
 				/>
-				<Button type="submit" size="medium">
-					Save
-				</Button>
+				<div className={styles.team__form__actions}>
+					{insideModal && (
+						<Button size="medium" variant="secondary" onClick={onClose}>
+							Cancel
+						</Button>
+					)}
+					<Button type="submit" size="medium">
+						Save
+					</Button>
+				</div>
 			</form>
 		</div>
 	);
