@@ -1,5 +1,28 @@
 .sign-out-btn {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+}
+
+.edit__form__container {
+	background-color: #fafbfc;
+	padding: 4rem;
+
+	h4 {
+		color: #184e7f;
+		border-bottom: 1px solid #737373;
+		padding-bottom: 0.5rem;
+		position: relative;
+		margin-bottom: 2rem;
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 10ch;
+			height: 2px;
+			background-color: #184e7f;
+			bottom: 0;
+			left: 0;
+		}
+	}
 }
