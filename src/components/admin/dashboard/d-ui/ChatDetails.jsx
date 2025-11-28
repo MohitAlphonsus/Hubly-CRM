@@ -10,31 +10,35 @@ export default function ChatDetails() {
 
 	return (
 		<div className={styles.chat__details}>
-			<div className={styles.user__details}>
-				<div className={styles.profile}>
-					<div className={styles.chat__user__profile}>
-						{generateInitials(selectedUser?.name)}
+			{selectedUser ? (
+				<div className={styles.user__details}>
+					<div className={styles.profile}>
+						<div className={styles.chat__user__profile}>
+							{generateInitials(selectedUser?.name)}
+						</div>
+						<p className={styles.chat__user__name}>
+							{capitalizeWords(selectedUser?.name)}
+						</p>
 					</div>
-					<p className={styles.chat__user__name}>
-						{capitalizeWords(selectedUser?.name)}
-					</p>
+					<h4>Details</h4>
+					<ul className={styles.user__info}>
+						<li>
+							<img src={userIcon} alt="user-icon" />
+							<span>{selectedUser?.name}</span>
+						</li>
+						<li>
+							<img src={phoneIcon} alt="phone-icon" />
+							<span>{selectedUser?.mobile}</span>
+						</li>
+						<li>
+							<img src={envelopeIcon} alt="email-icon" />
+							<span>{selectedUser?.email}</span>
+						</li>
+					</ul>
 				</div>
-				<h4>Details</h4>
-				<ul className={styles.user__info}>
-					<li>
-						<img src={userIcon} alt="user-icon" />
-						<span>{selectedUser?.name}</span>
-					</li>
-					<li>
-						<img src={phoneIcon} alt="phone-icon" />
-						<span>{selectedUser?.mobile}</span>
-					</li>
-					<li>
-						<img src={envelopeIcon} alt="email-icon" />
-						<span>{selectedUser?.email}</span>
-					</li>
-				</ul>
-			</div>
+			) : (
+				<div className={styles.user__details}>No user selected</div>
+			)}
 			<div className={styles.teams}>
 				<h4>Teams</h4>
 			</div>
