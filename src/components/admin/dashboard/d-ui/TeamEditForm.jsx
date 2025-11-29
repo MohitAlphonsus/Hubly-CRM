@@ -19,6 +19,8 @@ export default function TeamEditForm({ teamMember }) {
 			firstName: teamMember.firstName || "",
 			lastName: teamMember.lastName || "",
 			email: teamMember.email || "",
+			password: "",
+			confirmPassword: "",
 		});
 	}, []);
 

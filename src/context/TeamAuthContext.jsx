@@ -14,10 +14,13 @@ function TeamAuthProvider({ children }) {
 	}, []);
 
 	const handleResponse = (response) => {
-		const { email } = response.data.teamMember;
-		localStorage.setItem("token", response.data.token);
-		localStorage.setItem("team-member", JSON.stringify(email));
-		setCurrentTeamMember(email);
+		const { teamMember, token } = response.data;
+		localStorage.setItem("token", token);
+		localStorage.setItem(
+			"team-member",
+			JSON.stringify({ email: teamMember.email, id: teamMember._id })
+		);
+		setCurrentTeamMember({ email: teamMember.email, id: teamMember._id });
 	};
 	const signup = async ({ firstName, lastName, email, password }) => {
 		const response = await teamSignup({

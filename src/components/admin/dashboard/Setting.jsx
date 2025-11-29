@@ -9,12 +9,15 @@ import styles from "./Setting.module.css";
 export default function Setting() {
 	const { logout } = useTeamAuth();
 	const { teamMember, handleFetchTeamMember } = useTeam();
+	const { currentTeamMember } = useTeamAuth();
+	console.log(currentTeamMember._id);
 
 	const { id } = useParams();
+	let idToFetch = id || currentTeamMember.id;
 
 	useEffect(() => {
-		handleFetchTeamMember(id);
-	}, []);
+		handleFetchTeamMember(idToFetch);
+	}, [idToFetch]);
 
 	return (
 		<div className={styles.setting}>
