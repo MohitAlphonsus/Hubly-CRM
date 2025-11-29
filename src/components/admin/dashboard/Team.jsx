@@ -7,7 +7,8 @@ import deleteIcon from "../../../assets/icons/d-delete-icon.svg";
 import circlePlusIcon from "../../../assets/icons/circle-plus.svg";
 import { Button } from "../../ui";
 import Modal from "./d-ui/Modal";
-import TeamForm from "./d-ui/TeamForm";
+import TeamAddForm from "./d-ui/TeamAddForm";
+import { Link } from "react-router";
 
 const ASCENDING = "ASCENDING";
 const DESCENDING = "DESCENDING";
@@ -15,7 +16,7 @@ const DESCENDING = "DESCENDING";
 export default function Team() {
 	const [sortByNames, setSortByNames] = useState(ASCENDING);
 	const [isFormModalOpen, setIsFormModalOpen] = useState(false);
-	const { team, handleFetchAllTeamMembers } = useTeam();
+	const { team, handleFetchAllTeamMembers, handleDeleteTeamMember } = useTeam();
 
 	function handleFormModal() {
 		setIsFormModalOpen(!isFormModalOpen);
@@ -34,8 +35,12 @@ export default function Team() {
 	}
 
 	const sortedEmployees = [...team].sort((a, b) => {
-		const nameA = `${a.firstName} ${a.lastName}`.toLowerCase();
-		const nameB = `${b.firstName} ${b.lastName}`.toLowerCase();
+		const nameA = `${a?.firstName || ""} ${a?.lastName || ""}`
+			.trim()
+			.toLowerCase();
+		const nameB = `${b?.firstName || ""} ${b?.lastName || ""}`
+			.trim()
+			.toLowerCase();
 
 		if (nameA < nameB) return sortByNames === ASCENDING ? -1 : 1;
 		if (nameA > nameB) return sortByNames === ASCENDING ? 1 : -1;
@@ -63,21 +68,33 @@ export default function Team() {
 							<td>
 								<div className={styles.avatar}>
 									{generateInitials(
-										`${teamMember.firstName} ${teamMember.lastName}`
+										`${teamMember.firstName || ""} ${
+											teamMember.lastName || ""
+										}`.trim()
 									)}
 								</div>
 							</td>
-							<td>{`${teamMember.firstName} ${teamMember.lastName}`}</td>
+							<td>
+								{`${teamMember.firstName || ""} ${
+									teamMember.lastName || ""
+								}`.trim()}
+							</td>
 							<td>415-555-0132</td>
 							<td>{teamMember.email}</td>
 							<td>{teamMember.role}</td>
 							<td>
-								<button>
-									<img src={editIcon} alt="edit-icon" />
-								</button>
-								<button>
-									<img src={deleteIcon} alt="delete-icon" />
-								</button>
+								<Link to={`/admin/setting/${teamMember._id}`}>
+									<button>
+										<img src={editIcon} alt="edit-icon" />
+									</button>
+								</Link>
+								{teamMember.role !== "admin" && (
+									<button
+										onClick={() => handleDeleteTeamMember(teamMember._id)}
+									>
+										<img src={deleteIcon} alt="delete-icon" />
+									</button>
+								)}
 							</td>
 						</tr>
 					))}
@@ -101,7 +118,7 @@ export default function Team() {
 							only visible to it's participants. New teammates may only be
 							invited by the administrators.
 						</p>
-						<TeamForm insideModal onClose={handleFormModal} />
+						<TeamAddForm onClose={handleFormModal} />
 					</div>
 				</Modal>
 			)}
