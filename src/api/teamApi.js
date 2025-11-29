@@ -15,3 +15,7 @@ export function editAndUpdateTeamMember(id, data) {
 export function getAllTeamMembers() {
 	return API.get("/team/all");
 }
+
+export function getTeamMember(id) {
+	return API.get(`/team/${id}`);
+}
