@@ -1,0 +1,12 @@
+.team__add__form form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.form__actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-left: auto;
+	margin-top: 2rem;
+}
