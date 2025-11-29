@@ -28,9 +28,16 @@ export default function Layout() {
 					<>
 						<Route path="/" element={<Navigate to="/admin/dashboard" />} />
 						<Route path="/login" element={<Navigate to="/admin/dashboard" />} />
-						<Route path="/signup" element={<Navigate to="/admin/dashboard" />} />
+						<Route
+							path="/signup"
+							element={<Navigate to="/admin/dashboard" />}
+						/>
 
-						<Route path="/admin" element={<Navigate to="/admin/dashboard" />} replace />
+						<Route
+							path="/admin"
+							element={<Navigate to="/admin/dashboard" />}
+							replace
+						/>
 
 						<Route path="/admin" element={<Admin />}>
 							<Route path="dashboard" index element={<Home />} />
@@ -39,12 +46,20 @@ export default function Layout() {
 							<Route path="bots" element={<Bots />} />
 							<Route path="team" element={<Team />} />
 							<Route path="setting" element={<Setting />} />
+							<Route path="setting/:id" element={<Setting />} />
 						</Route>
 					</>
 				)}
 
-				<Route path="*" element={<Navigate to={currentTeamMember ? "/admin/dashboard" : "/"} replace />} />
-
+				<Route
+					path="*"
+					element={
+						<Navigate
+							to={currentTeamMember ? "/admin/dashboard" : "/"}
+							replace
+						/>
+					}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);
