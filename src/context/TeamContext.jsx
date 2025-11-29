@@ -15,8 +15,26 @@ function TeamProvider({ children }) {
 		const response = await getAllTeamMembers();
 		setTeam(response.data.teamMembers);
 	};
+
+	const handleAddTeamMember = async (data) => {
+		const response = await addTeamMember(data);
+		setTeam((prevTeam) => [...prevTeam, response.data.teamMember]);
+	};
+
+	const handleDeleteTeamMember = async (id) => {
+		await deleteTeamMember(id);
+		setTeam((prevTeam) => prevTeam.filter((member) => member._id !== id));
+	};
+
 	return (
-		<TeamContext.Provider value={{ team, handleFetchAllTeamMembers }}>
+		<TeamContext.Provider
+			value={{
+				team,
+				handleFetchAllTeamMembers,
+				handleAddTeamMember,
+				handleDeleteTeamMember,
+			}}
+		>
 			{children}
 		</TeamContext.Provider>
 	);
