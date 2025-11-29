@@ -11,7 +11,6 @@
 
 	header {
 		height: var(--header-height);
-		background-color: hsl(var(--color-primary-light-2));
 		color: hsl(var(--color-white));
 		display: flex;
 		align-items: center;
@@ -25,7 +24,6 @@
 	}
 
 	main {
-		background-color: hsl(var(--color-white-2));
 		height: calc(100% - var(--header-height) - var(--footer-height));
 	}
 

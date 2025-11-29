@@ -3,11 +3,16 @@ import sendIcon from "../../assets/icons/send-icon.svg";
 import hublyInterfaceIcon from "../../assets/icons/hubly-interface-icon.svg";
 import ChatInterfaceForm from "./ChatInterfaceForm";
 import { useChat } from "../../hooks/useChat";
+import { useBot } from "../../hooks/useBot";
 
 import styles from "./ChatInterface.module.css";
 export default function ChatInterface({ readonly = false }) {
 	const [message, setMessage] = useState("");
 	const { sessionToken, userMessages, handleUserSendingMessage } = useChat();
+	const { intialBotsettings } = useBot();
+	const { botSettings } = intialBotsettings;
+
+	console.log(botSettings);
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -24,19 +29,22 @@ export default function ChatInterface({ readonly = false }) {
 		<div
 			className={`${styles.chatInterface} ${readonly ? styles.readonly : ""}`}
 		>
-			<header>
+			<header style={{ backgroundColor: botSettings?.headerColor }}>
 				<img src={hublyInterfaceIcon} alt="hubly-interface-icon" />
 				<span>Hubly</span>
 			</header>
-			<main>
-				<p className={`${styles.chat__bubble__response} ${styles.chat__image}`}>
-					How can I help you?
-				</p>
+			<main style={{ backgroundColor: botSettings?.backgroundColor }}>
+				{botSettings?.customMessages?.map((msg, index) => (
+					<p
+						key={index}
+						className={`${styles.chat__bubble__response} ${styles.chat__image}`}
+					>
+						{msg}
+					</p>
+				))}
 
-				{sessionToken ? (
-					<p className={styles.chat__bubble__response}>Ask me anything!</p>
-				) : (
-					<ChatInterfaceForm />
+				{sessionToken ? null : (
+					<ChatInterfaceForm introductionForm={botSettings?.introductionForm} />
 				)}
 
 				{sessionToken &&

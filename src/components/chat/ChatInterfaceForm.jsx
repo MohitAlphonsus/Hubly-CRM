@@ -3,7 +3,7 @@ import { Button } from "../ui";
 import styles from "./ChatInterfaceForm.module.css";
 import { useChat } from "../../hooks/useChat";
 
-export default function ChatInterfaceForm({ className }) {
+export default function ChatInterfaceForm({ className, introductionForm }) {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -45,7 +45,7 @@ export default function ChatInterfaceForm({ className }) {
 				<input
 					type="text"
 					name="name"
-					placeholder="Your Name"
+					placeholder={introductionForm.name}
 					value={formData.name}
 					onChange={handleChange}
 				/>
@@ -55,7 +55,7 @@ export default function ChatInterfaceForm({ className }) {
 				<input
 					type="text"
 					name="mobile"
-					placeholder="+1 (000) 000-0000"
+					placeholder={introductionForm.phone}
 					value={formData.mobile}
 					onChange={handleChange}
 				/>
@@ -65,7 +65,7 @@ export default function ChatInterfaceForm({ className }) {
 				<input
 					type="text"
 					name="email"
-					placeholder="example@gmail.com"
+					placeholder={introductionForm.email}
 					value={formData.email}
 					onChange={handleChange}
 				/>

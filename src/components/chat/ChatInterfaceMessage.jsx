@@ -1,12 +1,12 @@
 import hublyInterfaceIcon from "../../assets/icons/hubly-interface-icon.svg";
 import styles from "./ChatInterfaceMessage.module.css";
-export default function ChatInterfaceMessage({
-	text = "👋 Want to chat about Hubly? I'm an chatbot here to help you find your way.",
-}) {
+import { useBot } from "../../hooks/useBot";
+export default function ChatInterfaceMessage({}) {
+	const { intialBotsettings } = useBot();
 	return (
 		<div className={styles.initial__message}>
 			<img src={hublyInterfaceIcon} alt="hubly-interface-icon" />
-			<p>{text}</p>
+			<p>{intialBotsettings.botSettings.welcomeMessage}</p>
 			<button onClick={() => setIsInitialMessageOpened(false)}>&times;</button>
 		</div>
 	);
