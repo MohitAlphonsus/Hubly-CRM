@@ -83,17 +83,19 @@ export default function Team() {
 							<td>{teamMember.email}</td>
 							<td>{teamMember.role}</td>
 							<td>
-								<Link to={`/admin/setting/${teamMember._id}`}>
-									<button>
-										<img src={editIcon} alt="edit-icon" />
-									</button>
-								</Link>
 								{teamMember.role !== "admin" && (
-									<button
-										onClick={() => handleDeleteTeamMember(teamMember._id)}
-									>
-										<img src={deleteIcon} alt="delete-icon" />
-									</button>
+									<>
+										<Link to={`/admin/setting/${teamMember._id}`}>
+											<button>
+												<img src={editIcon} alt="edit-icon" />
+											</button>
+										</Link>
+										<button
+											onClick={() => handleDeleteTeamMember(teamMember._id)}
+										>
+											<img src={deleteIcon} alt="delete-icon" />
+										</button>
+									</>
 								)}
 							</td>
 						</tr>
