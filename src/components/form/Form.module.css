@@ -21,7 +21,8 @@
 		color: hsl(var(--color-gray-light));
 	}
 
-	input {
+	input,
+	select {
 		width: 100%;
 		border: 1px solid hsl(var(--color-gray-light) / 35%);
 		padding: 1rem;
