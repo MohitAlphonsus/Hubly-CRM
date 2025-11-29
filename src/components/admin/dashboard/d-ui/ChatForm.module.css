@@ -1,0 +1,28 @@
+.chat__form {
+	background-color: hsl(var(--color-white));
+	padding: 2.4rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	border-radius: 5px;
+
+	.form__group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		label {
+			font-size: 1.2rem;
+		}
+
+		input {
+			padding: 0.5rem 0;
+			border: none;
+			border-bottom: 1px solid #c3c3c3;
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
