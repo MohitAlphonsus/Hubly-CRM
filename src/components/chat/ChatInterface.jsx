@@ -12,8 +12,6 @@ export default function ChatInterface({ readonly = false }) {
 	const { intialBotsettings } = useBot();
 	const { botSettings } = intialBotsettings;
 
-	console.log(botSettings);
-
 	async function handleSubmit(e) {
 		e.preventDefault();
 		if (!message) return;
@@ -44,7 +42,7 @@ export default function ChatInterface({ readonly = false }) {
 				))}
 
 				{sessionToken ? null : (
-					<ChatInterfaceForm introductionForm={botSettings?.introductionForm} />
+					<ChatInterfaceForm introductionForm={botSettings.introductionForm} />
 				)}
 
 				{sessionToken &&
