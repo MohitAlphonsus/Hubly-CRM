@@ -70,6 +70,8 @@
 	border-radius: 1rem;
 	padding: 1rem;
 	margin-top: 2rem;
+	font: inherit;
+	color: #808080;
 
 	&:focus {
 		outline: none;

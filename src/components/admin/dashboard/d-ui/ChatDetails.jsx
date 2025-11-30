@@ -9,8 +9,14 @@ import { useEffect } from "react";
 import CustomSelect from "./CustomSelect";
 
 export default function ChatDetails() {
-	const { selectedUser } = useChat();
+	const { selectedUser, handleResolveTicket } = useChat();
 	const { team, handleFetchAllTeamMembers } = useTeam();
+
+	function handleTicketStatus(value) {
+		if (value === "Ticket Status" || value === "Unresolved") return;
+		handleResolveTicket(selectedUser._id);
+		alert("Ticket has been resolved");
+	}
 
 	useEffect(() => {
 		handleFetchAllTeamMembers();
@@ -50,10 +56,13 @@ export default function ChatDetails() {
 			<div className={styles.teams}>
 				<h4>Teammates</h4>
 				<CustomSelect options={team} />
-				<select>
-					<option value="unresolved">Unresolved</option>
-					<option value="resolved">Resolved</option>
-				</select>
+				{selectedUser ? (
+					<select onClick={(e) => handleTicketStatus(e.target.value)}>
+						<option value="Ticket Status">Ticket Status</option>
+						<option value="Unresolved">Unresolved</option>
+						<option value="Resolved">Resolved</option>
+					</select>
+				) : null}
 			</div>
 		</div>
 	);

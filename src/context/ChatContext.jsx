@@ -7,6 +7,7 @@ import {
 	getMessagesByUserId,
 	getAllUsers,
 	getUserById,
+	resolveTicket,
 } from "../api/chatApi";
 
 const ChatContext = createContext();
@@ -83,7 +84,7 @@ function ChatProvider({ children }) {
 	};
 
 	const handleResolveTicket = async (userId) => {
-		const response = await resolveTicket(userId);
+		await resolveTicket(userId);
 		await handleFetchAllUsers();
 	};
 
