@@ -15,8 +15,8 @@ export default function Bots() {
 				<ChatInterfaceMessage />
 			</div>
 			<div className={styles.bots__right}>
-				<ColorPicker title="Header Color" />
-				<ColorPicker title="Custom Background Color" />
+				<ColorPicker label="Header Color" field="headerColor" />
+				<ColorPicker label="Custom Background Color" field="backgroundColor" />
 				<CustomMessage
 					text={["text to edit", "another text to edit"]}
 					title="Customize Message"
