@@ -1,8 +1,8 @@
 import Layout from "./router/Layout";
-import { TeamAuthProvider } from "./context/teamAuthContext";
-import { ChatProvider } from "./context/ChatContext";
-import { TeamProvider } from "./context/TeamContext";
-import { BotProvider } from "./context/BotContext";
+import { TeamAuthProvider } from "./context/teamAuthContext.jsx";
+import { ChatProvider } from "./context/ChatContext.jsx";
+import { TeamProvider } from "./context/TeamContext.jsx";
+import { BotProvider } from "./context/BotContext.jsx";
 export default function App() {
 	return (
 		<TeamAuthProvider>
