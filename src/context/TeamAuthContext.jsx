@@ -5,12 +5,14 @@ const TeamAuthContext = createContext();
 
 function TeamAuthProvider({ children }) {
 	const [currentTeamMember, setCurrentTeamMember] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const teamMember = localStorage.getItem("team-member");
 		if (teamMember) {
 			setCurrentTeamMember(JSON.parse(teamMember));
 		}
+		setLoading(false);
 	}, []);
 
 	const handleResponse = (response) => {
@@ -45,7 +47,7 @@ function TeamAuthProvider({ children }) {
 
 	return (
 		<TeamAuthContext.Provider
-			value={{ currentTeamMember, signup, login, logout }}
+			value={{ currentTeamMember, loading, signup, login, logout }}
 		>
 			{children}
 		</TeamAuthContext.Provider>
