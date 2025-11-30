@@ -15,7 +15,7 @@ export default function ColorPicker({ label, field }) {
 	}, [color]);
 
 	return (
-		<Card label={label}>
+		<Card title={label}>
 			<div className={styles.colors}>
 				{presetColors.map((presetColor) => (
 					<button
