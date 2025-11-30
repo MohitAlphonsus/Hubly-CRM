@@ -5,7 +5,6 @@ import { NavLink } from "react-router";
 import { useState } from "react";
 
 export default function Sidebar() {
-	const [activeLink, setActiveLink] = useState();
 	return (
 		<aside className={styles.sidebar}>
 			<img src={dashboardLogoIcon} alt="hubly-icon-logo" />
@@ -16,7 +15,6 @@ export default function Sidebar() {
 							<NavLink
 								to={route}
 								className={({ isActive }) => (isActive ? styles.active : "")}
-								onClick={() => setActiveLink(index)}
 							>
 								<img src={icon} alt={title} />
 								<span>{title}</span>
