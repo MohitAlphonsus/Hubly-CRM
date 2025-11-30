@@ -5,14 +5,14 @@ import { TeamProvider } from "./context/TeamContext";
 import { BotProvider } from "./context/BotContext";
 export default function App() {
 	return (
-		<BotProvider>
-			<TeamAuthProvider>
+		<TeamAuthProvider>
+			<BotProvider>
 				<ChatProvider>
 					<TeamProvider>
 						<Layout />
 					</TeamProvider>
 				</ChatProvider>
-			</TeamAuthProvider>
-		</BotProvider>
+			</BotProvider>
+		</TeamAuthProvider>
 	);
 }
