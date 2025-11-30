@@ -27,3 +27,7 @@ export function getAllUsers() {
 export function getUserById(userId) {
 	return API.get(`/user/${userId}`);
 }
+
+export function resolveTicket(userId) {
+	return API.put(`/users/${userId}/resolve`);
+}
