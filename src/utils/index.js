@@ -22,3 +22,18 @@ export function formatChatDate(dateString) {
 		year: "numeric",
 	});
 }
+
+export function formatPostedTime(dateString) {
+	const date = new Date(dateString);
+
+	let hours = date.getHours();
+	let minutes = date.getMinutes();
+	const ampm = hours >= 12 ? "PM" : "AM";
+
+	hours = hours % 12;
+	hours = hours || 12; // 0 → 12
+
+	const formattedMinutes = String(minutes).padStart(2, "0");
+
+	return `Posted at ${hours}:${formattedMinutes} ${ampm}`;
+}
