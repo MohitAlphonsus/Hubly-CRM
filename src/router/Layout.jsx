@@ -11,7 +11,10 @@ import {
 import { useTeamAuth } from "../hooks/useTeamAuth";
 
 export default function Layout() {
-	const { currentTeamMember } = useTeamAuth();
+	const { currentTeamMember, loading } = useTeamAuth();
+
+	if (loading) return <div>Loading...</div>;
+
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -27,20 +30,10 @@ export default function Layout() {
 				{currentTeamMember && (
 					<>
 						<Route path="/" element={<Navigate to="/admin/dashboard" />} />
-						<Route path="/login" element={<Navigate to="/admin/dashboard" />} />
-						<Route
-							path="/signup"
-							element={<Navigate to="/admin/dashboard" />}
-						/>
-
-						<Route
-							path="/admin"
-							element={<Navigate to="/admin/dashboard" />}
-							replace
-						/>
 
 						<Route path="/admin" element={<Admin />}>
-							<Route path="dashboard" index element={<Home />} />
+							<Route index element={<Navigate to="dashboard" />} />
+							<Route path="dashboard" element={<Home />} />
 							<Route path="chats" element={<ContactCenter />} />
 							<Route path="analytics" element={<Analytics />} />
 							<Route path="bots" element={<Bots />} />
@@ -54,10 +47,7 @@ export default function Layout() {
 				<Route
 					path="*"
 					element={
-						<Navigate
-							to={currentTeamMember ? "/admin/dashboard" : "/"}
-							replace
-						/>
+						<Navigate to={currentTeamMember ? "/admin/dashboard" : "/"} />
 					}
 				/>
 			</Routes>
