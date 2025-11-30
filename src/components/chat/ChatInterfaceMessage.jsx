@@ -1,7 +1,7 @@
 import hublyInterfaceIcon from "../../assets/icons/hubly-interface-icon.svg";
 import styles from "./ChatInterfaceMessage.module.css";
 import { useBot } from "../../hooks/useBot";
-export default function ChatInterfaceMessage({}) {
+export default function ChatInterfaceMessage({ setIsInitialMessageOpened }) {
 	const { intialBotsettings } = useBot();
 
 	return (

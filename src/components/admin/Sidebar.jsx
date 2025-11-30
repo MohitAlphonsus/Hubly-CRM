@@ -2,7 +2,6 @@ import { DASHBOARD_LINKS } from "../../constants";
 import dashboardLogoIcon from "../../assets/icons/d-logo-icon.svg";
 import styles from "./Sidebar.module.css";
 import { NavLink } from "react-router";
-import { useState } from "react";
 
 export default function Sidebar() {
 	return (

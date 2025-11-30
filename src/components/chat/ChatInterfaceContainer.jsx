@@ -16,7 +16,13 @@ export default function ChatInterfaceContainer() {
 			{isInterfaceOpened ? (
 				<ChatInterface />
 			) : (
-				<>{isInitialMessageOpened && <ChatInterfaceMessage />}</>
+				<>
+					{isInitialMessageOpened && (
+						<ChatInterfaceMessage
+							setIsInitialMessageOpened={setIsInitialMessageOpened}
+						/>
+					)}
+				</>
 			)}
 
 			<button
