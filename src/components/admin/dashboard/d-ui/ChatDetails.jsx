@@ -4,9 +4,17 @@ import { useChat } from "../../../../hooks/useChat";
 import userIcon from "../../../../assets/icons/d-user-icon.svg";
 import phoneIcon from "../../../../assets/icons/d-phone-icon.svg";
 import envelopeIcon from "../../../../assets/socials/envelope.svg";
+import { useTeam } from "../../../../hooks/useTeam";
+import { useEffect } from "react";
+import CustomSelect from "./CustomSelect";
 
 export default function ChatDetails() {
 	const { selectedUser } = useChat();
+	const { team, handleFetchAllTeamMembers } = useTeam();
+
+	useEffect(() => {
+		handleFetchAllTeamMembers();
+	}, []);
 
 	return (
 		<div className={styles.chat__details}>
@@ -40,7 +48,12 @@ export default function ChatDetails() {
 				<div className={styles.user__details}>No user selected</div>
 			)}
 			<div className={styles.teams}>
-				<h4>Teams</h4>
+				<h4>Teammates</h4>
+				<CustomSelect options={team} />
+				<select>
+					<option value="unresolved">Unresolved</option>
+					<option value="resolved">Resolved</option>
+				</select>
 			</div>
 		</div>
 	);

@@ -62,3 +62,16 @@
 		width: 1.5rem;
 	}
 }
+
+.teams select {
+	width: 100%;
+	background-color: hsl(var(--color-white));
+	border: 1px solid #d1d6da;
+	border-radius: 1rem;
+	padding: 1rem;
+	margin-top: 2rem;
+
+	&:focus {
+		outline: none;
+	}
+}

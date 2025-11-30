@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import searchIcon from "../../../assets/icons/search-icon.svg";
 import styles from "./Home.module.css";
+import { useChat } from "../../../hooks/useChat";
+import { generateInitials, formatPostedTime } from "../../../utils";
 
 const tabLink = [
 	{ id: 1, title: "All Tickets" },
@@ -10,7 +12,13 @@ const tabLink = [
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState(0);
+	const { users, handleFetchAllUsers } = useChat();
 
+	useEffect(() => {
+		handleFetchAllUsers();
+	}, []);
+
+	console.log(users);
 	return (
 		<div className={styles.home}>
 			<form>
@@ -30,23 +38,31 @@ export default function Home() {
 					))}
 				</div>
 				<div className={styles.tickets__list}>
-					<div className={styles.ticket}>
-						<div className={styles.ticket__info}>
-							<p className={styles.ticket__title}>Ticket# 2023-00123</p>
-							<p className={styles.ticket__recent__msg}>Hey!</p>
-							<div className={styles.ticket__user}>
-								<div className={styles.ticket__user__profile}>JD</div>
-								<span className={styles.ticket__user__name}>John Doe</span>
-								<span className={styles.ticket__user__number}>
-									+91-0000000000
-								</span>
-								<span className={styles.ticket__user__email}>
-									johndoe@email.com
+					{users?.map((user) => (
+						<div className={styles.ticket} key={user._id}>
+							<div className={styles.ticket__info}>
+								<p className={styles.ticket__title}>Ticket#{user._id}</p>
+								<p className={styles.ticket__recent__msg}>
+									{user.latestMessage}
+								</p>
+								<div className={styles.ticket__user}>
+									<div className={styles.ticket__user__profile}>
+										{generateInitials(user.name)}
+									</div>
+									<span className={styles.ticket__user__name}>{user.name}</span>
+									<span className={styles.ticket__user__number}>
+										{user.mobile}
+									</span>
+									<span className={styles.ticket__user__email}>
+										{user.email}
+									</span>
+								</div>
+								<span className={styles.ticket__date}>
+									{formatPostedTime(user.updatedAt)}
 								</span>
 							</div>
-							<span className={styles.ticket__date}>Posted at 12:45 AM</span>
 						</div>
-					</div>
+					))}
 				</div>
 			</div>
 		</div>
