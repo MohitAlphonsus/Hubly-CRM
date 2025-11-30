@@ -1,5 +1,5 @@
 import Layout from "./router/Layout";
-import { TeamAuthProvider } from "./context/TeamAuthContext.jsx";
+import { TeamAuthProvider } from "./context/teamAuthContext.jsx";
 import { ChatProvider } from "./context/ChatContext.jsx";
 import { TeamProvider } from "./context/TeamContext.jsx";
 import { BotProvider } from "./context/BotContext.jsx";
