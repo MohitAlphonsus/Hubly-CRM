@@ -1,45 +1,52 @@
 import { useRef, useEffect, useState } from "react";
 import styles from "./TimePicker.module.css";
-export default function TimePicker({ onChange }) {
+
+export default function TimePicker({ initialSeconds = 0, onChange }) {
 	const hours = [...Array(24).keys()];
 	const minutes = [...Array(60).keys()];
 	const seconds = [...Array(60).keys()];
 
-	const [time, setTime] = useState({
-		h: 0,
-		m: 0,
-		s: 0,
-	});
+	const [time, setTime] = useState({ h: 0, m: 0, s: 0 });
 
 	const hourRef = useRef(null);
 	const minuteRef = useRef(null);
 	const secondRef = useRef(null);
 
-	const handleScroll = (ref, key, max) => {
+	const ITEM_HEIGHT = 40;
+
+	// Set wheels on load only
+	useEffect(() => {
+		const h = Math.floor(initialSeconds / 3600);
+		const m = Math.floor((initialSeconds % 3600) / 60);
+		const s = initialSeconds % 60;
+
+		setTime({ h, m, s });
+
+		if (hourRef.current) hourRef.current.scrollTop = h * ITEM_HEIGHT;
+		if (minuteRef.current) minuteRef.current.scrollTop = m * ITEM_HEIGHT;
+		if (secondRef.current) secondRef.current.scrollTop = s * ITEM_HEIGHT;
+	}, [initialSeconds]);
+
+	const handleUserScroll = (ref, key, max) => {
 		if (!ref.current) return;
 
-		const itemHeight = 40; // must match CSS
-		const scrollTop = ref.current.scrollTop;
+		const index = Math.round(ref.current.scrollTop / ITEM_HEIGHT);
+		const value = Math.min(Math.max(index, 0), max);
 
-		const index = Math.round(scrollTop / itemHeight);
-		const value = Math.min(index, max);
+		const updated = { ...time, [key]: value };
+		setTime(updated);
 
-		setTime((prev) => ({
-			...prev,
-			[key]: value,
-		}));
+		const secondsValue = updated.h * 3600 + updated.m * 60 + updated.s;
+
+		onChange?.(secondsValue);
 	};
-
-	useEffect(() => {
-		onChange && onChange(time);
-	}, [time]);
 
 	return (
 		<div className={styles.container}>
 			<div
 				ref={hourRef}
 				className={styles.wheel}
-				onScroll={() => handleScroll(hourRef, "h", 23)}
+				onScroll={() => handleUserScroll(hourRef, "h", 23)}
 			>
 				{hours.map((h) => (
 					<div key={h} className={styles.item}>
@@ -51,7 +58,7 @@ export default function TimePicker({ onChange }) {
 			<div
 				ref={minuteRef}
 				className={styles.wheel}
-				onScroll={() => handleScroll(minuteRef, "m", 59)}
+				onScroll={() => handleUserScroll(minuteRef, "m", 59)}
 			>
 				{minutes.map((m) => (
 					<div key={m} className={styles.item}>
@@ -63,7 +70,7 @@ export default function TimePicker({ onChange }) {
 			<div
 				ref={secondRef}
 				className={styles.wheel}
-				onScroll={() => handleScroll(secondRef, "s", 59)}
+				onScroll={() => handleUserScroll(secondRef, "s", 59)}
 			>
 				{seconds.map((s) => (
 					<div key={s} className={styles.item}>
