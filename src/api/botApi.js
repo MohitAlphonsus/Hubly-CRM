@@ -5,5 +5,5 @@ export function fetchBotsSettings() {
 }
 
 export function updateBotSettings(data) {
-	return API.post("/bot/settings", data);
+	return API.put("/bot/settings", data);
 }

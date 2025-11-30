@@ -5,25 +5,43 @@ const BotContext = createContext();
 
 function BotProvider({ children }) {
 	const [intialBotsettings, setInitialBotsettings] = useState({});
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		handleFetchBotSettings();
+		async function load() {
+			try {
+				const res = await fetchBotsSettings();
+				setInitialBotsettings(res.data.botSettings); // MUST MATCH BACKEND
+			} catch (err) {
+				console.error("Failed to load bot settings", err);
+			}
+			setLoading(false); // IMPORTANT
+		}
+		load();
 	}, []);
 
-	const handleFetchBotSettings = async () => {
-		const response = await fetchBotsSettings();
-		setInitialBotsettings(response.data);
-	};
+	const handleUpdateBotSettings = async (key, value) => {
+		const partialUpdate = { [key]: value };
 
-	const handleUpdateBotSettings = async (data) => {
-		const updatedBotSettings = { ...data, [key]: value };
-		setInitialBotsettings(updatedBotSettings);
+		setInitialBotsettings((prev) => ({
+			...prev,
+			...partialUpdate,
+		}));
 
-		await updateBotSettings({ [key]: value });
+		try {
+			await updateBotSettings(partialUpdate);
+		} catch (err) {
+			console.log(`Error in Update Bot Settings ${err}`);
+			return res
+				.status(500)
+				.json({ message: "Internal server error", success: false });
+		}
 	};
 
 	return (
-		<BotContext.Provider value={{ intialBotsettings, handleUpdateBotSettings }}>
+		<BotContext.Provider
+			value={{ loading, intialBotsettings, handleUpdateBotSettings }}
+		>
 			{children}
 		</BotContext.Provider>
 	);
