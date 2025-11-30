@@ -82,6 +82,11 @@ function ChatProvider({ children }) {
 		setSelectedUser(response.data.user);
 	};
 
+	const handleResolveTicket = async (userId) => {
+		const response = await resolveTicket(userId);
+		await handleFetchAllUsers();
+	};
+
 	return (
 		<ChatContext.Provider
 			value={{
@@ -106,6 +111,7 @@ function ChatProvider({ children }) {
 				selectedUser,
 				handleFetchAllUsers,
 				handleFetchUserById,
+				handleResolveTicket,
 			}}
 		>
 			{children}
