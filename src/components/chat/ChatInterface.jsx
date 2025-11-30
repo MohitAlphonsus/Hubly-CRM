@@ -10,7 +10,6 @@ export default function ChatInterface({ readonly = false }) {
 	const [message, setMessage] = useState("");
 	const { sessionToken, userMessages, handleUserSendingMessage } = useChat();
 	const { intialBotsettings } = useBot();
-	const { botSettings } = intialBotsettings;
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -27,12 +26,12 @@ export default function ChatInterface({ readonly = false }) {
 		<div
 			className={`${styles.chatInterface} ${readonly ? styles.readonly : ""}`}
 		>
-			<header style={{ backgroundColor: botSettings?.headerColor }}>
+			<header style={{ backgroundColor: intialBotsettings?.headerColor }}>
 				<img src={hublyInterfaceIcon} alt="hubly-interface-icon" />
 				<span>Hubly</span>
 			</header>
-			<main style={{ backgroundColor: botSettings?.backgroundColor }}>
-				{botSettings?.customMessages?.map((msg, index) => (
+			<main style={{ backgroundColor: intialBotsettings?.backgroundColor }}>
+				{intialBotsettings?.customMessages?.map((msg, index) => (
 					<p
 						key={index}
 						className={`${styles.chat__bubble__response} ${styles.chat__image}`}
@@ -42,7 +41,9 @@ export default function ChatInterface({ readonly = false }) {
 				))}
 
 				{sessionToken ? null : (
-					<ChatInterfaceForm introductionForm={botSettings.introductionForm} />
+					<ChatInterfaceForm
+						introductionForm={intialBotsettings?.introductionForm}
+					/>
 				)}
 
 				{sessionToken &&

@@ -7,7 +7,7 @@ export default function ChatInterfaceMessage({}) {
 	return (
 		<div className={styles.initial__message}>
 			<img src={hublyInterfaceIcon} alt="hubly-interface-icon" />
-			<p>{intialBotsettings?.botSettings?.welcomeMessage}</p>
+			<p>{intialBotsettings?.welcomeMessage}</p>
 			<button onClick={() => setIsInitialMessageOpened(false)}>&times;</button>
 		</div>
 	);
