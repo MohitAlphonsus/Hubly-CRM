@@ -10,12 +10,12 @@ function BotProvider({ children }) {
 	useEffect(() => {
 		async function load() {
 			try {
-				const res = await fetchBotsSettings();
-				setInitialBotsettings(res.data.botSettings); // MUST MATCH BACKEND
+				const response = await fetchBotsSettings();
+				setInitialBotsettings(response.data.botSettings);
 			} catch (err) {
 				console.error("Failed to load bot settings", err);
 			}
-			setLoading(false); // IMPORTANT
+			setLoading(false);
 		}
 		load();
 	}, []);
@@ -29,12 +29,10 @@ function BotProvider({ children }) {
 		}));
 
 		try {
-			await updateBotSettings(partialUpdate);
+			const response = await updateBotSettings(partialUpdate);
+			setInitialBotsettings(response.data.botSettings);
 		} catch (err) {
 			console.log(`Error in Update Bot Settings ${err}`);
-			return res
-				.status(500)
-				.json({ message: "Internal server error", success: false });
 		}
 	};
 
