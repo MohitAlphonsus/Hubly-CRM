@@ -11,40 +11,51 @@ const tabLink = [
 ];
 
 export default function Home() {
-	const [activeTab, setActiveTab] = useState(0);
+	const [activeTab, setActiveTab] = useState("all");
 	const { users, handleFetchAllUsers } = useChat();
 
 	useEffect(() => {
 		handleFetchAllUsers();
 	}, []);
 
-	console.log(users);
+	const filteredUsers = users?.filter((user) => {
+		if (activeTab === "resolved") return user.status === "resolved";
+		if (activeTab === "unresolved") return user.status !== "resolved";
+		return true; // all tickets
+	});
+
 	return (
 		<div className={styles.home}>
 			<form>
 				<img src={searchIcon} alt="search-icon" />
 				<input type="text" placeholder="Search for ticket" />
 			</form>
+
 			<div className={styles.tickets}>
 				<div className={styles.tabs}>
-					{tabLink.map(({ id, title }, index) => (
-						<button
-							key={id}
-							onClick={() => setActiveTab(index)}
-							className={activeTab === index ? styles.active : ""}
-						>
-							{title}
-						</button>
-					))}
+					{tabLink.map(({ id, title }) => {
+						const key = title.toLowerCase().split(" ")[0]; // "all", "resolved", "unresolved"
+						return (
+							<button
+								key={id}
+								onClick={() => setActiveTab(key)}
+								className={activeTab === key ? styles.active : ""}
+							>
+								{title}
+							</button>
+						);
+					})}
 				</div>
+
 				<div className={styles.tickets__list}>
-					{users?.map((user) => (
+					{filteredUsers?.map((user) => (
 						<div className={styles.ticket} key={user._id}>
 							<div className={styles.ticket__info}>
 								<p className={styles.ticket__title}>Ticket#{user._id}</p>
 								<p className={styles.ticket__recent__msg}>
 									{user.latestMessage}
 								</p>
+
 								<div className={styles.ticket__user}>
 									<div className={styles.ticket__user__profile}>
 										{generateInitials(user.name)}
@@ -57,8 +68,19 @@ export default function Home() {
 										{user.email}
 									</span>
 								</div>
+
 								<span className={styles.ticket__date}>
 									{formatPostedTime(user.updatedAt)}
+								</span>
+
+								<span
+									className={
+										user.status === "resolved"
+											? styles.resolved
+											: styles.unresolved
+									}
+								>
+									{user.status}
 								</span>
 							</div>
 						</div>
