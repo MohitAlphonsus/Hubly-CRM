@@ -2,7 +2,7 @@ import { Button } from "../ui";
 import styles from "./Hero.module.css";
 import arrowRight from "../../assets/icons/arrow-right.svg";
 import playBtn from "../../assets/icons/play-button.svg";
-
+import heroImg from "../../assets/hero.png";
 export default function Hero() {
 	return (
 		<section className={`section ${styles.hero__section}`}>
@@ -32,7 +32,7 @@ export default function Hero() {
 					</div>
 					<div className={styles.hero__image}>
 						<div className={styles.hero__image__rect}>
-							<img src="/src/assets/hero.png" alt="hero" />
+							<img src={heroImg} alt="hero" />
 						</div>
 						<div className={styles.hero__image__card}>&nbsp;</div>
 						<div className={styles.hero__image__calender}>&nbsp;</div>
